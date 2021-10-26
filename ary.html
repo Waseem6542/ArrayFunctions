@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+</head>
+<body>
+<!---- <input type="Number" placeholder="Enter Number" id="a"> <br><br>
+    <input type="Number" placeholder="Enter Number" id="b"> <br><br>
+    <button onclick="enter()">Submit</button> -->
+   
+    <script>
+       
+var arr = [2, 4, 5, 1, 10, 15];
+var arr1 = [5, 10, 20, 30, 50, 10];
+
+console.log("Array 1 " + "[" + arr + "]");
+console.log("Array 2 " + "[" + arr1 + "]");
+
+//Merge Arrays
+var combinedArray = arr.concat(arr1);
+console.log(combinedArray);
+
+
+//Min value
+var min = Math.min(...combinedArray);
+console.log("Min Value = " +min);
+
+//Max vale
+var max = Math.max(...combinedArray);
+console.log("Max Value = "  +max);
+
+//sorting  
+combinedArray.sort(function(a, b){return a - b});
+
+//sum of
+var sum =  0;
+        for (var j = 0; j < combinedArray.length; j++) {
+            sum = sum + combinedArray[j];
+        }
+            console.log("sum of Array: " + sum);
+
+
+//Removing repeation
+var unique = combinedArray.filter((value, index) => {
+    return combinedArray.indexOf(value) === index;
+});
+console.log(unique);
+
+var unique = combinedArray.filter(function(item, pos, self) {
+    return self.indexOf(item) == pos;
+})
+console.log(unique);
+
+
+//sum
+var sum2 =  0;
+        for (var i = 0; i < unique.length; i++) {
+            sum2 = sum2 + unique[i];
+        }
+            console.log("sum of Array: " + sum2);
+
+
+    </script>
+</body>
+</html>
