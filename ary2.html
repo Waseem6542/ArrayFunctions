@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 2</title>
+    <h2>Array input:</h2>
+</head>
+<body>
+    
+    1 : <input type="number" placeholder="Enter Number" id="a"><br><br>
+    2 : <input type="number" placeholder="Enter Number" id="a1"><br><br>
+    Calc: <button onclick="add()"> Submit </button>
+    <p id="b">Merged Array:</p>
+    <p id="g">Sorted Array:</p>
+    <p id="c">Sum of Array:</p>
+    <p id="d">Max Value in Array:</p>
+    <p id="e">Min Value in Array:</p>
+    <p id="f">Remove duplication:</p>
+    
+
+
+<script>
+    var i = 0;
+    var j = 0;
+      var arr = Array();
+      var arr1 = Array();
+      function add() 
+      {
+
+        arr[i]=Number(document.getElementById("a").value);
+        arr1[j]=Number(document.getElementById("a1").value);
+            
+        console.log(arr , arr1);
+    
+        //var array3 = arr.concat(arr1);
+        //console.log('array3: ', array3);
+
+          var myArr = String(arr).split('')
+          var myArr1 = String(arr1).split('')
+        // console.log('myArr: (split)', myArr)
+
+        let tempoArray = []
+        myArr.forEach((num)=>{
+            let number = Number(num)
+            tempoArray.push(number)
+        })
+
+        myArr1.forEach((num)=>{
+            let number = Number(num)
+            tempoArray.push(number)
+        })
+        console.log('tempoArray: ', tempoArray);
+
+
+        console.log('myArr:', tempoArray)
+        document.getElementById("b").innerHTML=  "Array :" + "[" + tempoArray +"]";
+         
+        //Sorting
+        tempoArray.sort(function(myArr, myArr1){return myArr - myArr1})
+        document.getElementById("g").innerHTML = "Sorting: " + "[" + tempoArray + "]" ;
+        console.log("Sorting:" + "[" + tempoArray + "]");
+
+       
+        //sum of array      
+         var sum =  0;
+         for (let j = 0; j < tempoArray.length; j++) {
+             sum = sum + tempoArray[j];
+         }
+             document.getElementById("c").innerHTML = "Sum of Array:  " + sum;
+             console.log("sum of Array: " + sum);
+
+             //Multiplication
+            //var mul = 0;
+
+         //largest number in array
+         function myArrayMax(arry) {
+                 return Math.max(...tempoArray);
+         }
+             document.getElementById("d").innerHTML = "Largest number in Array:  " + myArrayMax(myArr);
+             console.log("Largest number in Array:" + myArrayMax(myArr));
+
+         //lowest number in array
+         myArrayMin = (tempoArray) => Math.min(...tempoArray);
+
+             document.getElementById("e").innerHTML = "lowest number in Array:  " + myArrayMin(tempoArray);
+             console.log("lowest number in Array:" + myArrayMin(tempoArray));
+
+         //Remove duplication in array
+         let dArray =[];
+         tempoArray.forEach(element => {
+               if (!dArray.includes (element)) {
+                   dArray.push(element)
+                 }
+       });
+       document.getElementById('f').innerHTML = "Remove duplicate :" + "[" + dArray  + "]" ;
+                console.log("Remove duplicate :" + "[" + dArray  + "]");
+      }
+    
+ 
+    </script>
+</body>
+</htmt>
